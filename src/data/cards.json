@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "img": "../src/img/fuego.png",
+    "nombre": "Fuegod",
+    "descripcion": "Esta vez es en serio, no estoy mintiendo..."
+  },
+  {
+    "id": 2,
+    "img": "../src/img/agua.png",
+    "nombre": "Diosa Aqua",
+    "descripcion": "Saluda con Olas, desconocida y a solas..."
+  },
+  {
+    "id": 3,
+    "img": "../src/img/viento.png",
+    "nombre": "Diosaire",
+    "descripcion": "Inasible. Fluye, influye y destruye."
+  },
+  {
+    "id": 4,
+    "img": "../src/img/piedra.png",
+    "nombre": "Rocker",
+    "descripcion": "Duro y pesado es el Dios de Roca, a cualquiera derroca"
+  },
+  {
+    "id": 5,
+    "img": "../src/img/tijera.png",
+    "nombre": "HyperFilo",
+    "descripcion": "Dios del filo. Agil y filoso, jamaz se corta solo"
+  },
+  {
+    "id": 6,
+    "img": "../src/img/papel.png",
+    "nombre": "Papergod",
+    "descripcion": "Dios de Papel, Sabio rey de la Historia."
+  },
+  {
+    "id": 7,
+    "img": "../src/img/esponja.png",
+    "nombre": "God Esponja",
+    "descripcion": "No hay nada que no pueda absorver, ni morder."
+  }
+]

@@ -1,0 +1,76 @@
+* {
+  font-family: cinzel;
+  text-align: center;
+}
+body {
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  background-image: url(./src/img/fondologin.png.jpeg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+main {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.containerLogin {
+  background-color: rgba(240, 248, 255, 0.329);
+  border-color: rgba(231, 231, 231, 0.151);
+  border-style: groove;
+  border-radius: 15px;
+  padding: 40px;
+  max-width: 500px;
+  width: 90%;
+}
+
+#username {
+  margin-top: 2rem;
+  border: none; /* Eliminar el borde por defecto */
+  border-bottom: 2px solid #e2e4e7d0; /* Línea solo en la parte inferior */
+  outline: none; /* Eliminar el contorno predeterminado */
+  background: transparent; /* Hacer que el fondo sea transparente */
+  padding: 5px 0; /* Añadir espacio en la parte superior e inferior */
+  font-size: 29px; /* Ajustar el tamaño de la fuente */
+  width: 60%; /* Ancho del input */
+  height: 100%;
+  margin-bottom: 25px;
+  color: rgb(231, 224, 213);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+#username:focus {
+  border-bottom: 2px solid #eeab2f; /* Cambiar color de la línea al enfocar */
+}
+#username::placeholder {
+  color: rgb(255, 255, 255);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+#tutorial-toggle {
+  margin-bottom: 30px;
+  background-color: rgba(0, 0, 0, 0.219);
+  border-radius: 20px;
+  color: aliceblue;
+}
+
+#login-btn {
+  width: 50%;
+  background-image: url(./src/img/texturaPiedra.jpeg);
+  color: rgb(230, 233, 235);
+}
+footer {
+  font-family: "Cinzel", serif;
+  background-color: #00000060;
+  color: white;
+  text-align: center;
+  padding: 1rem 0;
+}

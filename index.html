@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="login.css" />
+    <!--fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Anton+SC&family=Bebas+Neue&family=Cedarville+Cursive&family=Cinzel:wght@400..900&family=Handjet:wght@100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <!--/-->
+    <title>Login</title>
+  </head>
+  <body>
+    <header>
+      <img src="./src/img/logo.png" alt="Logo" />
+    </header>
+
+    <main>
+      <div class="containerLogin">
+        <input type="text" id="username" placeholder="Nombre de usuario" />
+
+        <div id="tutorial-toggle">📘 Ver tutorial</div>
+        <div id="tutorial-content" style="display: none">
+          <img src="./src/img/tutorial.png" alt="Tutorial" width="300" />
+        </div>
+
+        <button id="login-btn">Iniciar</button>
+      </div>
+    </main>
+
+    <footer>Desarrollado por Dario Hernan Guaraz</footer>
+
+    <script src="login.js"></script>
+  </body>
+</html>
