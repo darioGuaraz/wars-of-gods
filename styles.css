@@ -1,105 +1,93 @@
+:root {
+  --primary-color: #8b5e2a;
+  --secondary-color: #eac77a;
+  --text-color: #f5f5f5;
+  --shadow-color: rgba(0, 0, 0, 0.6);
+  --transition-speed: 0.3s;
+  --border-radius: 10px;
+}
+
 *,
 *::before,
 *::after {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-  height: 100vh;
+  min-height: 100vh;
   background-image: url(./src/img/fondoindex.png);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
+  background-attachment: fixed;
   margin: 0;
   padding: 0;
+  overflow-x: hidden;
 }
+
 nav {
   background-color: #000000ee;
-}
-.battle-cards {
-  display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
-  gap: 2rem;
-  margin: 2rem 0;
-}
-.battle-cards .card {
-  flex: 1 1 250px;
-  max-width: 300px;
-  background-color: #eac77abe;
   padding: 1rem;
-  border-radius: 10px;
-  border: 2px solid #8b5e2a;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  font-family: cinzel;
+  color: #f5f5f5;
 }
 
-.card-con-boton {
-  display: flex;
-}
-/* Botones */
-button {
+/* Estilos base para pantallas grandes */
+h1 {
   font-family: "Cinzel", serif;
-  background-image: url(./src/img/texturaOro.jpeg);
-  background-size: cover;
-  color: #000;
-  border: 3px solid var(--primary-color);
-  border-radius: 50%;
-  font-size: 1.5rem;
-  cursor: pointer;
-  transition: all var(--transition-speed) ease;
-  box-shadow: 0 4px 8px var(--shadow-color);
-  padding: 1rem;
-  width: 150px;
-  height: 150px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 2rem auto;
-  margin-top: 10%;
+  font-weight: 450;
+  font-size: clamp(3rem, 6vw, 6rem);
+  color: rgb(236, 163, 44);
+  text-shadow: 2px 9px 4px rgba(0, 0, 0, 1.5);
+  margin: 0.5em 0;
+  text-align: center;
 }
 
-button:hover {
-  transform: scale(1.4) rotate(18deg);
-  box-shadow: 0 8px 16px var(--shadow-color);
+h2 {
+  font-family: "Cinzel", serif;
+  font-weight: 500;
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  color: rgb(231, 224, 213);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  text-align: center;
+  margin: 1rem 0;
 }
 
-.battle-button {
-  background-image: url(./src/img/texturaOro.jpeg);
-  font-weight: bold;
+h3 {
+  font-family: "Cinzel", serif;
+  font-weight: 400;
+  font-size: clamp(1.25rem, 2vw, 1.75rem);
+  color: rgb(6, 7, 7);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  margin: 0.5rem 0;
 }
 
+hr {
+  width: 45%;
+  max-width: 500px;
+  margin: 1rem auto;
+  border: 1px solid var(--secondary-color);
+  opacity: 0.7;
+}
+
+p {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-weight: 500;
+  font-size: 1rem;
+  line-height: 1.4;
+}
+
+/* Contenedores principales */
 #cardsAvaiable {
   display: flex;
-  max-width: 100%;
-  cursor: pointer;
-  margin-bottom: 60px;
-}
-.card {
-  margin-top: 10px;
-  margin-right: 10px;
-  padding: 5px;
-  text-align: center;
-  border-style: solid;
-  border-color: #8b5e2a;
-  border-radius: 10px;
-  background-image: url(./src/img/texturaPapiro.jpeg);
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-}
-
-.card img {
-  width: 98%;
-  height: 300px;
-  border-style: solid;
-  border-color: #8b5e2a;
-  border-radius: 10px;
-}
-#cardsAvaiable .card:hover {
-  transform: scale(1.05);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.6);
-  transition: transform 0.9s ease, box-shadow 0.3s ease;
-  z-index: 10;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+  padding: 1rem;
+  margin-bottom: 2rem;
 }
 
 .selectedCards {
@@ -108,98 +96,223 @@ button:hover {
   align-items: center;
   flex-direction: column;
   width: 100%;
-  margin-top: 2rem;
-}
-
-h1 {
-  font-family: "Cinzel", serif;
-  font-optical-sizing: auto;
-  font-weight: 450;
-  font-size: 6rem;
-  color: rgb(236, 163, 44);
-  text-shadow: 2px 9px 4px rgba(0, 0, 0, 1.5);
-  margin-top: 0;
-}
-
-h2 {
-  text-align: center;
-  font-family: "Cinzel", serif;
-  font-optical-sizing: auto;
-  font-weight: 500;
-  font-size: 2rem;
-  color: rgb(231, 224, 213);
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-}
-hr {
-  width: 45%;
-}
-
-h3 {
-  font-family: "Cinzel", serif;
-  font-optical-sizing: auto;
-  font-weight: 400;
-  font-size: 28px;
-  color: rgb(6, 7, 7);
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-
-  padding: 0;
-  margin-top: 0px;
-}
-.battle-result {
-  position: absolute;
-  margin-top: -20%;
-  font-family: "Cinzel", serif;
-  font-optical-sizing: auto;
-  font-weight: 800;
-  max-width: 100%;
-  width: 100%;
-  font-size: 100px;
-  text-align: center;
-  color: rgb(215, 221, 221);
-}
-h2 .battle-result {
-  text-align: center;
-}
-p {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-  font-weight: 500;
+  margin: 2rem 0;
+  padding: 0 1rem;
 }
 
 .contenedorSelector {
-  width: 90%;
+  width: 95%;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 1.5rem;
   background-color: rgba(255, 255, 255, 0.05);
-  border-radius: 12px;
+  border-radius: var(--border-radius);
   border: 2px solid rgba(255, 255, 255, 0.2);
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
   backdrop-filter: blur(5px);
 }
+
 .contenedorSelector h3 {
   text-align: center;
-  color: aliceblue;
+  color: var(--text-color);
 }
 
-/*RESPONSIVE*/
-/* === RESPONSIVE MOBILE === */
+/* Cartas */
+.card {
+  margin: 0.5rem;
+  padding: 1rem;
+  text-align: center;
+  border: 2px solid var(--primary-color);
+  border-radius: var(--border-radius);
+  background-image: url(./src/img/texturaPapiro.jpeg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 280px;
+  transition: all var(--transition-speed) ease;
+  cursor: pointer;
+}
+
+.card img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border: 2px solid var(--primary-color);
+  border-radius: calc(var(--border-radius) - 2px);
+  margin-bottom: 0.5rem;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.6);
+  z-index: 10;
+}
+
+/* Battle cards */
+.battle-cards {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin: 2rem 0;
+  position: relative;
+}
+
+.battle-cards .card {
+  flex: 1 1 250px;
+  max-width: 300px;
+  background-color: #eac77abe;
+  padding: 1rem;
+}
+
+.card-con-boton {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+/* Botones */
+button {
+  font-family: "Cinzel", serif;
+  font-weight: 800;
+  background-image: url(./src/img/texturaOro.jpeg);
+  background-size: cover;
+  color: #000;
+  border: 3px solid var(--primary-color);
+  border-radius: 50%;
+  font-size: 1.25rem;
+  cursor: pointer;
+  transition: all var(--transition-speed) ease;
+  box-shadow: 0 4px 8px var(--shadow-color);
+  padding: 1rem;
+  width: 140px;
+  height: 140px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1rem 0;
+}
+
+button:hover {
+  transform: scale(1.1) rotate(5deg);
+  box-shadow: 0 8px 16px var(--shadow-color);
+}
+
+.battle-button {
+  background-image: url(./src/img/texturaOro.jpeg);
+  font-weight: bold;
+}
+
+/* Resultado de batalla */
+.battle-result {
+  font-family: "Cinzel", serif;
+  font-weight: 800;
+  width: 100%;
+  font-size: clamp(2rem, 8vw, 4rem);
+  text-align: center;
+  color: rgb(215, 221, 221);
+  margin: 1rem 0;
+  position: static;
+}
+
+footer {
+  font-family: "Cinzel", serif;
+  background-color: #000000af;
+  color: rgb(201, 199, 196);
+  text-align: center;
+  padding: 1rem;
+}
+
+/* ===== MEDIA QUERIES ===== */
+
 @media (max-width: 768px) {
-  h1 {
-    font-size: 3rem;
+  .contenedorSelector {
+    padding: 1rem;
   }
 
   .card {
-    width: 90%;
+    width: 240px;
+  }
+
+  .card img {
+    height: 200px;
+  }
+
+  .battle-cards {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .card-con-boton {
+    flex-direction: column;
   }
 
   button {
-    height: 8rem;
-    width: 8rem;
-    font-size: 1.5rem;
+    width: 120px;
+    height: 120px;
+    font-size: 1.1rem;
+  }
+}
+
+/* Móviles pequeños (576px o menos) */
+@media (max-width: 576px) {
+  h1 {
+    font-size: 2.5rem;
+    margin: 0.3em 0;
+  }
+
+  h2 {
+    font-size: 1.3rem;
+  }
+
+  #cardsAvaiable {
+    gap: 1rem;
+  }
+
+  .card {
+    width: 100%;
+    max-width: 280px;
+    margin: 0.3rem;
+  }
+
+  .card img {
+    height: 180px;
+  }
+
+  button {
+    width: 100px;
+    height: 100px;
+    font-size: 1rem;
   }
 
   .battle-result {
-    font-size: 2.5rem;
+    font-size: 1.8rem;
+  }
+}
+
+/* Móviles muy pequeños (400px o menos) */
+@media (max-width: 400px) {
+  h1 {
+    font-size: 2rem;
+  }
+
+  h2 {
+    font-size: 1.1rem;
+  }
+
+  .card {
+    padding: 0.8rem;
+  }
+
+  .card img {
+    height: 150px;
+  }
+
+  button {
+    width: 90px;
+    height: 90px;
+    font-size: 0.9rem;
   }
 }

@@ -1,19 +1,35 @@
+:root {
+  --primary-color: #eeab2f;
+  --secondary-color: #e2e4e7;
+  --text-color: rgb(231, 224, 213);
+  --shadow-color: rgba(0, 0, 0, 0.6);
+  --transition-speed: 0.3s;
+  --border-radius: 15px;
+  --input-width: 80%;
+  --button-width: 60%;
+}
+
 * {
-  font-family: cinzel;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Cinzel", serif;
   text-align: center;
 }
+
 body {
-  height: 100vh;
+  min-height: 100vh;
   margin: 0;
   padding: 0;
   background-image: url(./src/img/fondologin.png.jpeg);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-
+  background-attachment: fixed;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  color: var(--text-color);
 }
 
 main {
@@ -21,56 +37,162 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 1rem;
 }
 
 .containerLogin {
-  background-color: rgba(240, 248, 255, 0.329);
-  border-color: rgba(231, 231, 231, 0.151);
-  border-style: groove;
-  border-radius: 15px;
-  padding: 40px;
+  background-color: rgba(35, 36, 37, 0.363);
+  border: 2px groove rgba(255, 250, 245, 0.185);
+  border-radius: var(--border-radius);
+  padding: 2rem;
+  width: 100%;
   max-width: 500px;
-  width: 90%;
+  backdrop-filter: blur(5px);
+  box-shadow: 0 10px 30px var(--shadow-color);
 }
 
 #username {
-  margin-top: 2rem;
-  border: none; /* Eliminar el borde por defecto */
-  border-bottom: 2px solid #e2e4e7d0; /* Línea solo en la parte inferior */
-  outline: none; /* Eliminar el contorno predeterminado */
-  background: transparent; /* Hacer que el fondo sea transparente */
-  padding: 5px 0; /* Añadir espacio en la parte superior e inferior */
-  font-size: 29px; /* Ajustar el tamaño de la fuente */
-  width: 60%; /* Ancho del input */
-  height: 100%;
-  margin-bottom: 25px;
-  color: rgb(231, 224, 213);
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  margin: 2rem 0;
+  border: none;
+  border-bottom: 2px solid var(--secondary-color);
+  outline: none;
+  background: transparent;
+  padding: 0.5rem 0;
+  font-size: clamp(1.25rem, 4vw, 1.8rem);
+  width: var(--input-width);
+  color: var(--text-color);
+  text-shadow: 2px 2px 4px var(--shadow-color);
+  transition: border-color var(--transition-speed);
 }
+
 #username:focus {
-  border-bottom: 2px solid #eeab2f; /* Cambiar color de la línea al enfocar */
+  border-bottom: 2px solid var(--primary-color);
 }
+
 #username::placeholder {
-  color: rgb(255, 255, 255);
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  color: rgba(255, 255, 255, 0.8);
+  text-shadow: 2px 2px 4px var(--shadow-color);
 }
 
 #tutorial-toggle {
-  margin-bottom: 30px;
-  background-color: rgba(0, 0, 0, 0.219);
-  border-radius: 20px;
-  color: aliceblue;
+  margin: 2rem auto;
+  font-weight: 550;
+  background-image: url(./src/img/texturaOro.jpeg);
+  background-size: cover;
+  border-radius: var(--border-radius) var(--border-radius) 0 0;
+  color: #000;
+  width: var(--button-width);
+  padding: 0.8rem 0;
+  box-shadow: 0 10px 20px var(--shadow-color);
+  border: none;
+  cursor: pointer;
+  transition: transform var(--transition-speed);
+}
+
+#tutorial-toggle:hover {
+  transform: translateY(-3px);
 }
 
 #login-btn {
-  width: 50%;
+  width: var(--button-width);
+  height: 3rem;
   background-image: url(./src/img/texturaPiedra.jpeg);
-  color: rgb(230, 233, 235);
+  background-size: cover;
+  color: var(--text-color);
+  box-shadow: 0 10px 20px var(--shadow-color);
+  border: none;
+  border-radius: var(--border-radius);
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: all var(--transition-speed);
+  margin-bottom: 1rem;
 }
+
+#login-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 12px 24px var(--shadow-color);
+}
+
 footer {
   font-family: "Cinzel", serif;
-  background-color: #00000060;
-  color: white;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: rgb(255, 174, 0);
   text-align: center;
-  padding: 1rem 0;
+  padding: 1rem;
+  font-size: 0.9rem;
+}
+
+/* ===== MEDIA QUERIES ===== */
+
+/* Tablets y móviles grandes (768px o menos) */
+@media (max-width: 768px) {
+  :root {
+    --input-width: 90%;
+    --button-width: 70%;
+  }
+
+  .containerLogin {
+    padding: 1.5rem;
+  }
+
+  #username {
+    margin: 1.5rem 0;
+    font-size: 1.5rem;
+  }
+
+  #tutorial-toggle,
+  #login-btn {
+    width: var(--button-width);
+  }
+}
+
+/* Móviles pequeños (576px o menos) */
+@media (max-width: 576px) {
+  :root {
+    --input-width: 95%;
+    --button-width: 80%;
+  }
+
+  .containerLogin {
+    padding: 1.25rem;
+  }
+
+  #username {
+    font-size: 1.3rem;
+    margin: 1.25rem 0;
+  }
+
+  #tutorial-toggle,
+  #login-btn {
+    padding: 0.7rem 0;
+    font-size: 1rem;
+  }
+
+  #login-btn {
+    height: 2.75rem;
+  }
+}
+
+/* Móviles muy pequeños (400px o menos) */
+@media (max-width: 400px) {
+  :root {
+    --button-width: 90%;
+  }
+
+  .containerLogin {
+    padding: 1rem;
+  }
+
+  #username {
+    font-size: 1.1rem;
+    margin: 1rem 0;
+  }
+
+  #tutorial-toggle {
+    margin-top: 1.5rem;
+  }
+
+  #login-btn {
+    height: 2.5rem;
+  }
 }
