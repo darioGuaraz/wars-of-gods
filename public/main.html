@@ -3,6 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- ventoy bootstrap -->
+    <link rel="stylesheet" href="./vendor/bootstrap/css/bootstrap.min.css" />
+    <!--/-->
     <link rel="stylesheet" href="../styles.css" />
     <!--fonts-->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -16,6 +19,14 @@
     <title>War of Gods</title>
   </head>
   <body>
+    <nav class="nav">
+      <a class="nav-link active" aria-current="page" href="../index.html"
+        >Cambiar Nombre</a
+      >
+      <a class="nav-link" href="https://github.com/darioGuaraz/wars-of-gods"
+        >Repositorio</a
+      >
+    </nav>
     <header>
       <h1>Bienvenido al campo de battalla</h1>
     </header>
@@ -28,5 +39,7 @@
     <button id="battleBtn" style="display: none">⚔️</button>
 
     <script src="../main.js"></script>
+    <!-- Justo antes del cierre del </body> -->
+    <script src="./vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   </body>
 </html>

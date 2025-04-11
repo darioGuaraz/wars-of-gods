@@ -1,4 +1,3 @@
-//--------------------------------------
 let cardsData = [];
 let selectedCard = null;
 
@@ -41,11 +40,6 @@ document.addEventListener("DOMContentLoaded", async () => {
         // Reasignar el evento al nuevo botón insertado en el DOM
         const battleBtn = document.getElementById("battleBtn");
         battleBtn.addEventListener("click", () => {
-          if (!selectedCard) {
-            alert("Seleccioná primero un dios ");
-            return;
-          }
-
           const cpuCard =
             cardsData[Math.floor(Math.random() * cardsData.length)];
           showBattleResult(selectedCard, cpuCard);
@@ -54,6 +48,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
       container.appendChild(cardElement);
     });
+
     const username = localStorage.getItem("username") || "guerrero";
     const mensajeUsuario = document.getElementById("saludo");
     mensajeUsuario.textContent = `los dioses te esperan ${username}, selecciona uno de ellos y enfrentate al enemigo`;
@@ -62,42 +57,35 @@ document.addEventListener("DOMContentLoaded", async () => {
   }
 });
 
-const reglasDeBatalla = {
-  Fuegod: ["Papergod", "HyperFilo", "God Esponja"],
-  "Diosa Aqua": ["Fuegod", "Rocker", "HyperFilo"],
-  Diosaire: ["Diosa Aqua", "God Esponja", "HyperFilo"],
-  Rocker: ["Fuegod", "Diosaire", "Papergod"],
-  HyperFilo: ["Rocker", "Papergod", "Diosa Aqua"],
-  Papergod: ["Diosa Aqua", "Diosaire", "God Esponja"],
-  "God Esponja": ["Fuegod", "Rocker", "Diosaire"],
-};
-
 function showBattleResult(playerCard, cpuCard) {
   const selectedContainer = document.querySelector(".selectedCards");
-
-  // Normalizar los nombres de las cartas
-  const playerName = playerCard.nombre.trim();
-  const cpuName = cpuCard.nombre.trim();
-
-  // Buscar las reglas
-  const ganaContra = reglasDeBatalla[playerName];
-
   const username = localStorage.getItem("username") || "Jugador";
 
-  let resultado = ""; // ✅ Declarar correctamente la variable
+  // Normalizamos los nombres
+  const playerName = normalizeName(playerCard.nombre);
+  const cpuName = normalizeName(cpuCard.nombre);
 
-  // Verificación
-  if (!ganaContra) {
-    resultado = `⚠️ No se encontraron reglas para la carta "${playerName}".`;
-  } else if (playerName === cpuName) {
-    resultado = `⚔️ Empataste ${username} ⚔️`;
-  } else if (ganaContra.includes(cpuName)) {
-    resultado = `¡${username} ganó! 💥`;
+  // Reglas con nombres normalizados
+  const winningRules = {
+    fuegod: ["hyperfilo", "godesponja", "papergod"],
+    diosaaqua: ["rocker", "fuegod", "hyperfilo"],
+    diosaire: ["diosaaqua", "fuegod", "rocker"],
+    rocker: ["fuegod", "hyperfilo", "godesponja"],
+    hyperfilo: ["diosaire", "papergod", "godesponja"],
+    papergod: ["diosaire", "diosaaqua", "rocker"],
+    godesponja: ["papergod", "diosaire", "diosaaqua"],
+  };
+
+  let resultado;
+
+  if (playerName === cpuName) {
+    resultado = `⚔️ Empate ⚔️`;
+  } else if (winningRules[playerName]?.includes(cpuName)) {
+    resultado = `¡${username} ganó! 😎`;
   } else {
     resultado = `Perdiste ${username}.. 😒`;
   }
 
-  // Renderizar resultado
   selectedContainer.innerHTML = `
     <div class="contenedorSelector">
       <h2>Resultado de la batalla</h2>
@@ -116,4 +104,8 @@ function showBattleResult(playerCard, cpuCard) {
       <h3 class="battle-result">${resultado}</h3>
     </div>
   `;
+}
+
+function normalizeName(name) {
+  return name.toLowerCase().replace(/\s+/g, "");
 }

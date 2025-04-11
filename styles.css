@@ -13,7 +13,9 @@ body {
   margin: 0;
   padding: 0;
 }
-
+nav {
+  background-color: #000000ee;
+}
 .battle-cards {
   display: flex;
   justify-content: space-around;
@@ -73,6 +75,7 @@ button:hover {
   margin-bottom: 60px;
 }
 .card {
+  margin-top: 10px;
   margin-right: 10px;
   padding: 5px;
   text-align: center;
