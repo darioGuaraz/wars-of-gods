@@ -100,8 +100,6 @@ main {
   background-size: cover;
   color: var(--text-color);
   box-shadow: 0 10px 20px var(--shadow-color);
-  border: none;
-  border-radius: var(--border-radius);
   font-size: 1.1rem;
   cursor: pointer;
   transition: all var(--transition-speed);
